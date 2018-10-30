@@ -1,70 +1,38 @@
-.part
-{
-    display: flex;
-}
-
-.left
-{
-    width: 400px;
+.body{
     height: 100%;
-    background: pink;
+    font-size: 12px;
+    font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
 }
-
-.idbox
-{
-    display: flex;
-    flex-direction: row;
+.home{
+    margin: 0 auto;
+    padding: 8px 10px 0;
+    width: 1080px;
+    text-align: left;
+    zoom: 1;
 }
-
-
-.left>.idbox>button
-{
-    margin-top: 3px;
-    margin-bottom: 3px;
-    height: 43px;
-    background: rgb(228, 214, 214);
+.left{
+    border-right: 1px solid #d1d8e4;
+    background: #fff;
+    float: left;
+    width: 355px;
+    height: 100%;
 }
-
-
-
-
-
-
-
-
-.right
-{
-    flex-grow : 1;
+.id_pw{
+    float: left;
+    width: 230px;
 }
+.id_pw_box{    width: 210px;}
 
-
-
-.right>button
-{
-    vertical-align: bottom;
-    margin-top: 4px;
-    font-family: sans-serif;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    border-bottom: 4px inset rgba(0, 0, 0, 0.3);
-    transition: all ease 400ms;
+.button_frame{
+    float: left;
+    height: 44px;
+    width: 56px;
 }
-.right>button:hover
-{
-    margin-top: 0;
-    border-bottom-width: 8px;
+.log_button{
+    padding: 10px 6px;
 }
-.right>button:active
-{
-    border-bottom-width: 0;
-}
-:focus /*버튼을 눌렀을 때 테두리가 없게함*/
-{
-    outline: none;
-}
-.right>.b
-{
-    background:rgb(51, 122, 150);
+.right{
+    position: relative;
+    float: right;
+    width: 720px;
 }
