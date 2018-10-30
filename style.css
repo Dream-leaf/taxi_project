@@ -1,0 +1,69 @@
+.apple{ /* selector */
+    background: indigo;
+}
+#a{
+    padding: 10px;
+    animation: Breathe2 ease 3s infinite;
+}
+*{
+    background: azure;
+}
+input, button{
+    font-family: 궁서;
+    font-variant: small-caps;
+    text-decoration: underline;
+    text-shadow: 0 1px yellow;
+}
+span.apple{
+    font-size: 50pt;
+}
+body span{
+    font-weight: bold;
+}
+body>span{
+    padding : 100px;
+}
+input[type=password]{
+    color: red;
+}
+button:hover{ /* pseudo class selector */
+    padding: 10px;
+    font-size: x-large;
+}
+body>*:last-child{
+    font-size: x-large;
+}
+body>*:not(button){
+    color: black;
+}
+button{
+    transition: none 500ms ease;
+    transition-property: padding, font-size;
+    animation: Breathe linear 2s infinite;
+    background-size: 100% 100%;
+    background-image: url("http://kstatic.inven.co.kr/upload/2018/02/16/bbs/i16682298371.jpg");
+}
+@keyframes Breathe{
+    from{
+        transform: translateY(0) scale(1);
+    }
+    50%{
+        transform: translateY(-5px) scale(1.1);
+    }
+    to{
+        transform: translateY(0) scale(1);
+    }
+}
+@keyframes Breathe2{
+    from{
+        transform: translateY(0) scale(1);
+    }
+    80%{
+        transform: translateY(-5px) scale(1.1);
+    }
+    to{
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 인라인 > 복잡한것 > 나중인것 */
