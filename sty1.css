@@ -1,0 +1,39 @@
+.body{
+    height: 100%;
+    font-size: 12px;
+    font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
+}
+.home{
+    margin: 0 auto;
+    padding: 8px 10px 0;
+    width: 1080px;
+    text-align: left;
+    zoom: 1;
+}
+.left{
+    border-right: 1px solid #d1d8e4;
+    background: #fff;
+    float: left;
+    width: 355px;
+    height: 100%;
+}
+.id_pw{
+    float: left;
+    width: 230px;
+}
+.id_pw_box{    width: 210px;}
+
+.button_frame{
+    float: left;
+    height: 44px;
+    width: 56px;
+}
+.log_button{
+    padding: 10px 6px;
+}
+.right{
+    position: relative;
+    float: right;
+    width: 720px;
+}
+
