@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page import="java.sql.*" %>
+
+<!DOCTYPE htmlPUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <title>Page Title</title>
@@ -86,6 +90,33 @@ body {
 }
 </style>
 </head>
+
+<%
+try {
+ 
+        String driverName = "oracle.jdbc.driver.OracleDriver"; 
+ 
+        String url = "jdbc:oracle:thin:@localhost:1521:root";
+ 
+        ResultSet rs = null;
+ 
+      
+ 
+        Class.forName(driverName);
+ 
+        Connection con = DriverManager.getConnection(url,"BOARD","board");
+ 
+        out.println("Oracle Database Connection Success.");
+ 
+      
+ 
+        Statement stmt = con.createStatement();        
+ 
+        String sql = "select * from board order by time_ desc";
+ 
+        rs = stmt.executeQuery(sql);
+%>
+
 <body>
 
 <!-- Note -->
@@ -122,11 +153,55 @@ body {
   </div>
   <div class="main">
       <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>
+	  <h5>Title description, Dec 7, 2017</h5>
+	  <table>
+	  	<tr>
+	  		<th>번호</th>
+	  		<th>제목</th>
+	  		<th>출발지</th>
+	  		<th>도착지</th>
+	  		<th>시간</th>
+	  		<th>인상착의</th>
+	  	</tr>
+<%   
+ 
+        while(rs.next()){
+ 
+            out.print("<tr>");
+ 
+            out.print("<td>" + rs.getString(1) + "</td>");
+ 
+            out.print("<td>" + rs.getString(2) + "</td>");
+ 
+            out.print("<td>" + rs.getString(3) + "</td>");
+ 
+            out.print("<td>" + rs.getString(4) + "</td>");
+ 
+            out.print("<td>" + rs.getString(5) + "</td>");
+ 
+            out.print("</tr>");
+ 
+        }
+ 
+%>
+	  </table>
+	  <a href="board.jsp">글쓰기</a>
+<%
+		con.close();
+	}catch(Exception e){
+		out.println("Oracle Database Connection Something Problem. <hr>");
+		 
+        out.println(e.getMessage());
+ 
+        e.printStackTrace();
+
+	}
+%>
       <div class="fakeimg" style="height:200px;">Image</div>
       <p>Some text..</p>
       <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
       <br>
+      
       <h2>TITLE HEADING</h2>
       <h5>Title description, Sep 2, 2017</h5>
       <div class="fakeimg" style="height:200px;">Image</div>
