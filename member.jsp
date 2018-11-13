@@ -6,16 +6,22 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
+<script type="text/javascript">
+	function insertPopup(){
+		window.name = "MemberServlet.do"; //부모 이름
+		window.open("id_check.jsp","insert","width=450, height=320 , resizable = no, scrollbars = no, status = no");
+	}
+</script>
 <body>
 	<form action="member_insert.jsp" method="post" onsubmit="return formCheck();">
-		
-		ID : <input type="text" name="id"/><br/>
+		ID : <input type="text" name="id"/><a href="javascript:insertPopup();"> id중복체크 </a><br/>
 		PW : <input type="text" name="pw"/><br/>
 		PW확인 : <input type="text" name="pw_chk"/><br/>
 		별명 : <input type="text" name="nickname"/><br/>
 		생년월일 : <input type="text" name="birth_date"/><br/>
 		<input type="submit"/>
-		<script>
+	</form>
+	<script>
 	function formCheck() {
 		 
 	    var id = document.forms[0].id.value;
