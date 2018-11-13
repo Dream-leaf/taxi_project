@@ -7,7 +7,7 @@
 <script type="text/javascript">
 	function insertPopup(){
 		window.name = "MemberServlet.do"; //부모 이름
-		window.open("id_check.jsp","insert","width=450, height=320 , resizable = no, scrollbars = no, status = no");
+		window.open("id_check.jsp","insert","width=400, height=320 , resizable = no, scrollbars = no, status = no");
 	}
 </script>
 <table  border = "0" cellspacing = "1" cellpadding = "0" width = "400">
@@ -20,10 +20,17 @@
 						(ID)&nbsp;  
 					</td>
 					<td align = "left" style ="font-family: Tahoma; font-size : 8pt">
-						<input type="text" name="id"/><a href="javascript:insertPopup();"> 
-						<button >ID Check</button> </a><br/>
+						<input type="text" name="id"/> 
+						<a href = "javascript:insertPopup()"> <img src = "img2.jpg">
+						</a> 
+						<br/>
 					</td>
 				</tr>
+				<tr>
+						<td colspan="5" bgcolor = "#EBD9D9" align = "center">
+							<img sec= " " width="10" height="1">
+						</td>
+					</tr>
 				<tr align = "right" height = "28" style ="font-family: Tahoma; font-size : 8pt">
 					<td >
 					<b>PW :</b> 
@@ -33,6 +40,11 @@
 					</td>
 				</tr>
 				<tr>
+						<td colspan="5" bgcolor = "#EBD9D9" align = "center">
+							<img sec= " " width="10" height="1">
+						</td>
+					</tr>
+				<tr>
 					<td align = "right" style ="font-family: Tahoma; font-size : 8pt">
 							확인 : 
 					</td>
@@ -40,6 +52,11 @@
 							<input type="text" name="pw_chk"/><br/>
 					</td>
 				</tr>
+				<tr>
+						<td colspan="5" bgcolor = "#EBD9D9" align = "center">
+							<img sec= " " width="10" height="1">
+						</td>
+					</tr>
 				<tr>
 					<td align = "right" style ="font-family: Tahoma; font-size : 8pt">
 						별명 :
@@ -49,6 +66,11 @@
 					</td>
 				</tr>
 				<tr>
+						<td colspan="5" bgcolor = "#EBD9D9" align = "center">
+							<img sec= " " width="10" height="1">
+						</td>
+					</tr>
+				<tr>
 					<td align = "right" style ="font-family: Tahoma; font-size : 8pt">
 						생년월일 :
 					</td>
@@ -57,8 +79,16 @@
 					</td>			
 				</tr>
 				<tr>
-					<td colspan="2" align = "right">
-							<input type="submit"/>
+						<td colspan="5" bgcolor = "#EBD9D9" align = "center">
+							<img sec= " " width="10" height="1">
+						</td>
+					</tr>
+				<tr>
+					<td colspan="2" align = "right" style="font-family: Tahoma; font-size: 10pt">
+						<button>
+							회원가입
+						</button>
+							<!--<input type="submit"/>-->
 					</td>
 					
 				</tr>
