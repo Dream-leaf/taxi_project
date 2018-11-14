@@ -23,6 +23,8 @@ try {
  
      String url = "jdbc:oracle:thin:@localhost:1521:root";
      
+     ResultSet rs = null;
+     
      Class.forName(driverName);
  
      Connection con = DriverManager.getConnection(url,"MEMBER_","member_"); //url + id + pw
@@ -30,7 +32,21 @@ try {
      out.println("Oracle 데이터베이스 db에 성공적으로 접속했습니다");
      Statement stmt = con.createStatement();            // SQL 쿼리를 날리기위한 Statement 객체 생성
      
-     String sql = "INSERT INTO MEMBER_LIST "+
+     //여기서 아이디 중복 검사 다시 함!
+     
+     String sql= "SELECT * FROM MEMBER_LIST WHERE ID="+id;
+     
+     rs = stmt.executeQuery(sql);
+     
+     if(rs.isBeforeFirst()){
+    	 //아이디 사용불가능! 중복된 ID 존재함
+    	 out.println("중복된 ID가 존재합니다.");
+    	 con.close();	//연결끊기.
+     }
+     
+     sql = null;
+     
+     sql = "INSERT INTO MEMBER_LIST "+
      	"(ID, PW, NICKNAME, BIRTHDATE, RIGHT, ISBLACKLIST) "+
     	"VALUES ("+id+", '"+pw+"', '"+nickname+"', '"+birth_date+"', '"+1+"','"+0+"')";
      

@@ -7,20 +7,100 @@
 <title>Insert title here</title>
 </head>
 <script type="text/javascript">
-	function insertPopup(){
-		window.name = "MemberServlet.do"; //부모 이름
-		window.open("id_check.jsp","insert","width=450, height=320 , resizable = no, scrollbars = no, status = no");
+		function insertPopup(){
+		var data = document.querySelector('#pId').value;     		
+		if(!(window.open("id_check.jsp?id="+data,"childForm","width=450, height=320 , resizable = no, scrollbars = no, status = no"))){
+			return false;
+		}
+		
 	}
 </script>
-<body>
-	<form action="member_insert.jsp" method="post" onsubmit="return formCheck();">
-		ID : <input type="text" name="id"/><a href="javascript:insertPopup();"> id중복체크 </a><br/>
-		PW : <input type="text" name="pw"/><br/>
-		PW확인 : <input type="text" name="pw_chk"/><br/>
-		별명 : <input type="text" name="nickname"/><br/>
-		생년월일 : <input type="text" name="birth_date"/><br/>
-		<input type="submit"/>
-	</form>
+<table  border = "0" cellspacing = "1" cellpadding = "0" width = "400">
+	<body topmargin = "0" leftmargin="0" marginwidth="0" marginheight="0">
+		<div align = "center" >
+			<form action="member_insert.jsp" method="post" onsubmit="return formCheck();">
+				<tr align = "right">
+					<td width = "25%" style ="font-family: Tahoma; font-size : 8pt">
+						<b>아이디</b>
+						(ID)&nbsp;  
+					</td>
+					<td align = "left" style ="font-family: Tahoma; font-size : 8pt">
+					
+					<input type="text" id="pId" name="id"/> 
+					<a href = "javascript:insertPopup()"> <img src = "img2.jpg"></a> 
+					<br/>
+					</td>
+				</tr>
+				<tr>
+						<td colspan="5" bgcolor = "#EBD9D9" align = "center">
+							<img sec= " " width="10" height="1">
+						</td>
+				</tr>
+				<tr align = "right" height = "28" style ="font-family: Tahoma; font-size : 8pt">
+					<td >
+					<b>PW :</b> 
+					</td>
+					<td align = "left">
+						<input type="text" name="pw"/>
+					</td>
+				</tr>
+				<tr>
+						<td colspan="5" bgcolor = "#EBD9D9" align = "center">
+							<img sec= " " width="10" height="1">
+						</td>
+					</tr>
+				<tr>
+					<td align = "right" style ="font-family: Tahoma; font-size : 8pt">
+							확인 : 
+					</td>
+					<td align = "left">
+							<input type="text" name="pw_chk"/><br/>
+					</td>
+				</tr>
+				<tr>
+						<td colspan="5" bgcolor = "#EBD9D9" align = "center">
+							<img sec= " " width="10" height="1">
+						</td>
+					</tr>
+				<tr>
+					<td align = "right" style ="font-family: Tahoma; font-size : 8pt">
+						별명 :
+					</td>
+					<td align = "left">
+						<input type="text" name="nickname"/><br/>
+					</td>
+				</tr>
+				<tr>
+						<td colspan="5" bgcolor = "#EBD9D9" align = "center">
+							<img sec= " " width="10" height="1">
+						</td>
+					</tr>
+				<tr>
+					<td align = "right" style ="font-family: Tahoma; font-size : 8pt">
+						생년월일 :
+					</td>
+					<td align = "left">
+						<input type="text" name="birth_date"/><br/>
+					</td>			
+				</tr>
+				<tr>
+						<td colspan="5" bgcolor = "#EBD9D9" align = "center">
+							<img sec= " " width="10" height="1">
+						</td>
+					</tr>
+				<tr>
+					<td colspan="2" align = "right" style="font-family: Tahoma; font-size: 10pt">
+						<button>
+							회원가입
+						</button>
+							<!--<input type="submit"/>-->
+					</td>
+					
+				</tr>
+				
+			</form>
+		</div>
+</table>
 	<script>
 	function formCheck() {
 		 
