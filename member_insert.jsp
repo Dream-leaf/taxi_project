@@ -9,19 +9,44 @@
 </head>
 <%
 	String id = request.getParameter("id");
-	String pw = request.getParameter("pw"); 
+	String pw = request.getParameter("pw");
+	String name = request.getParameter("name");
 	String nickname = request.getParameter("nickname");
-	String birth_date = request.getParameter("birth_date");
+	String gender = request.getParameter("gender");
+	String birth_yy = request.getParameter("birth_yy");
+	String birth_mm = request.getParameter("birth_mm");
+	String birth_dd = request.getParameter("birth_dd");
+	
+	String birth = null;
+	
+	String mail1 = request.getParameter("mail1");	//mail = mail1 + @ + mail2
+	String mail2 = request.getParameter("mail2");
+	
+	String phone_num = request.getParameter("phone_num");
+	
+	String address = request.getParameter("address");
 	
 	if(id == "" || id == null) out.println("id이 null입니다");
 	if(pw == "" || pw == null) out.println("pw이 null입니다");
+	if(name == "" || name== null) out.println("name이 null입니다");
 	if(nickname == "" || nickname == null) out.println("nickname이 null입니다");
-	if(birth_date == "" || birth_date == null) out.println("birth_date이 null입니다");
+	if(birth_yy == "" || birth_yy == null) out.println("birth_yy이 null입니다");
+	if(birth_mm == "" || birth_mm == null) out.println("birth_mm이 null입니다");
+	if(birth_dd == "" || birth_dd == null) out.println("birth_dd이 null입니다");
+	
+	if(mail1 == "" || mail1 == null) out.println("mail1이 null입니다");
+	if(mail2 == "" || mail2 == null) out.println("mail2이 null입니다");
+	
+	if(phone_num == "" || phone_num == null) out.println("phone_num이 null입니다");
+	if(address == "" || address == null) out.println("address이 null입니다");
 try {
  
      String driverName = "oracle.jdbc.driver.OracleDriver"; 
  
      String url = "jdbc:oracle:thin:@localhost:1521:root";
+     
+     birth = birth_yy + "/" + birth_mm + "/" + birth_dd;
+     mail1 = mail1+"@"+mail2;
      
      ResultSet rs = null;
      
@@ -47,14 +72,14 @@ try {
      sql = null;
      
      sql = "INSERT INTO MEMBER_LIST "+
-     	"(ID, PW, NICKNAME, BIRTHDATE, RIGHT, ISBLACKLIST) "+
-    	"VALUES ("+id+", '"+pw+"', '"+nickname+"', '"+birth_date+"', '"+1+"','"+0+"')";
+     	"(ID, PW, NAME, NICKNAME, GENDER, BIRTH, MAIL, PHONE_NUM, ADDRESS, RIGHT, ISBLACKLIST) "+
+    	"VALUES ("+id+", '"+pw+"', '"+name+"', '"+nickname+"', '"+gender+"', '"+birth+"', '"+mail1+"', '"+phone_num+"', '"+address+"', '"+0+"','"+0+"')";
      
-     stmt.executeUpdate(sql);  
+     stmt.executeUpdate(sql);
+     
      con.close();
  
 } catch (Exception e) {
- 
      out.println("Oracle 데이터베이스 db 접속에 문제가 있습니다. <hr>");
  
      out.println(e.getMessage());
@@ -62,9 +87,7 @@ try {
      e.printStackTrace();
 }
 finally{
-	 
     out.print("<script>location.href='taxi.jsp';</script>");
-
 }
 %>
 <body>

@@ -6,30 +6,6 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<script type="text/javascript">
-    function _GET(search) {
-        var obj = {};
-        var uri = decodeURI(search);
-            uri = uri.slice(1,uri.length);
- 
-        var param = uri.split('&');
-        
-        for (var i = 0; i < param.length; i++) {
-            var devide = param[i].split('=');
-            obj[devide[0]] = devide[1];
-        }
- 
-        return obj;
-    }
- 
-    window.onload = function () {
-        var search = window.location.search;
-        var getData =  _GET(search);
-        var sender = document.querySelector('#cId');
- 
-        sender.value = getData.val;
-    }
-</script>
 </head>
 <%
 
@@ -79,7 +55,7 @@ try {
 }
 finally{
 	 
-    out.print("<script>location.href='member.jsp?id="+id+"';</script>"); //여기서 id정보 넘겨줘서...모르게따.
+   // out.print("<script>location.href='member.jsp?id="+id+"';</script>"); //여기서 id정보 넘겨줘서...모르게따.
 
 }
 
