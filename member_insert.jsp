@@ -8,23 +8,20 @@
 <title>e</title>
 </head>
 <%
+	request.setCharacterEncoding("euc-kr");
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
 	String name = request.getParameter("name");
 	String nickname = request.getParameter("nickname");
-	String gender = request.getParameter("gender");
 	String birth_yy = request.getParameter("birth_yy");
 	String birth_mm = request.getParameter("birth_mm");
 	String birth_dd = request.getParameter("birth_dd");
 	
 	String birth = null;
 	
-	String mail1 = request.getParameter("mail1");	//mail = mail1 + @ + mail2
-	String mail2 = request.getParameter("mail2");
+	String mail = request.getParameter("mail");
 	
 	String phone_num = request.getParameter("phone_num");
-	
-	String address = request.getParameter("address");
 	
 	if(id == "" || id == null) out.println("id이 null입니다");
 	if(pw == "" || pw == null) out.println("pw이 null입니다");
@@ -34,11 +31,11 @@
 	if(birth_mm == "" || birth_mm == null) out.println("birth_mm이 null입니다");
 	if(birth_dd == "" || birth_dd == null) out.println("birth_dd이 null입니다");
 	
-	if(mail1 == "" || mail1 == null) out.println("mail1이 null입니다");
-	if(mail2 == "" || mail2 == null) out.println("mail2이 null입니다");
+	if(mail == "" || mail == null) out.println("mail이 null입니다");
+	
 	
 	if(phone_num == "" || phone_num == null) out.println("phone_num이 null입니다");
-	if(address == "" || address == null) out.println("address이 null입니다");
+	
 try {
  
      String driverName = "oracle.jdbc.driver.OracleDriver"; 
@@ -46,7 +43,6 @@ try {
      String url = "jdbc:oracle:thin:@localhost:1521:root";
      
      birth = birth_yy + "/" + birth_mm + "/" + birth_dd;
-     mail1 = mail1+"@"+mail2;
      
      ResultSet rs = null;
      
@@ -72,8 +68,8 @@ try {
      sql = null;
      
      sql = "INSERT INTO MEMBER_LIST "+
-     	"(ID, PW, NAME, NICKNAME, GENDER, BIRTH, MAIL, PHONE_NUM, ADDRESS, RIGHT, ISBLACKLIST) "+
-    	"VALUES ("+id+", '"+pw+"', '"+name+"', '"+nickname+"', '"+gender+"', '"+birth+"', '"+mail1+"', '"+phone_num+"', '"+address+"', '"+0+"','"+0+"')";
+     	"(ID, PW, NAME, NICKNAME, BIRTH, MAIL, PHONE_NUM, RIGHT, ISBLACKLIST) "+
+    	"VALUES ("+id+", '"+pw+"', '"+name+"', '"+nickname+"', '"+birth+"', '"+mail+"', '"+phone_num+"', '"+0+"','"+0+"')";
      
      stmt.executeUpdate(sql);
      

@@ -1,8 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
 <html>
     <head>
-        <link rel = "stylesheet" href = "taxistyle.css">
+        <link rel = "stylesheet" href = "firststyle.css">
     </head>
-
+    
+    <script type="text/javascript">
+    function goTaxi(){
+		location.href="taxi.jsp";
+	}
+    // Ãë¼Ò ¹öÆ° Å¬¸¯½Ã ·Î±×ÀÎ È­¸éÀ¸·Î ÀÌµ¿
+    function goLogin(){
+		location.href="LoginPage.jsp";
+	}
+    function goJoin(){
+		location.href="member.jsp";
+	}
+	</script>
+    
+	<meta charset="UTF-8">
     <body>
         <img id = "img" src = "3.jpg">
         <div class = "header">
@@ -32,9 +49,9 @@
                 <br>
                 Let's take<br> a taxi
                 <br>
-                <button class = "button"><span>íƒì‹œ íƒ€ëŸ¬ ê°€ê¸°</span></button>
-                <button class = "button"><span>ë¡œê·¸ì¸</span></button>
-                <button class = "button"><span>íšŒì›ê°€ì…</span></button>
+                <button class = "button" onclick="goTaxi()"><span>ÅÃ½Ã Å¸·¯ °¡±â</span></button>
+                <button class = "button" onclick="goLogin()"><span>·Î±×ÀÎ</span></button>
+                <button class = "button" onclick="goJoin()"><span>È¸¿ø°¡ÀÔ</span></button>
             </div>
             <div class = "down">
         
