@@ -1,0 +1,133 @@
+body
+{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#img
+{
+    filter: brightness(75%);
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+.up
+{
+    flex: 15%;
+}
+
+.center
+{
+    margin-left: 20%;
+    margin-right: 20%;
+    flex: 70%;
+    background-color: rgb(221, 215, 215);
+    border-radius: 5px;
+}
+
+.down
+{
+    flex: 15%;
+}
+
+.box
+{
+    display: flex;
+}
+
+/* -------------------------state------------------------ */
+.box>.state
+{
+    margin: 10px;
+    flex:10%;
+}
+
+#user
+{
+    margin-top: 20px;
+}
+
+#user>#mystate
+{
+    border-radius: 5px;
+    background-color: whitesmoke;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+#user>#mystate span
+{   
+    margin: 5px;
+    font-size: 10px;
+}
+
+#user>#mystatebody
+{
+    margin-bottom: 50px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+
+#user>#mystate img
+{
+    margin-right: 2px;
+    height: 12px;
+}
+
+#user>#report
+{
+    display:inline-block;
+    border:none;
+    border-radius: 5px;
+    background-color: rgb(46, 44, 44);
+    cursor: pointer;
+    width: 142px;
+    color: white;
+}
+
+/* -----------------------------main------------------------ */
+
+.box>.main
+{
+    flex:90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main .header
+{
+    flex: 10%;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.main .board
+{
+    margin-right: 30px;
+    flex: 55%;
+}
+
+.header div
+{
+    background-color: whitesmoke;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .board
+{
+    background-color: rgb(185, 167, 167);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
