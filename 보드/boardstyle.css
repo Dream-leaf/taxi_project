@@ -79,8 +79,9 @@ body
     height: 12px;
 }
 
-#user>#report
+#user .button
 {
+    margin-bottom: 10px;
     display:inline-block;
     border:none;
     border-radius: 5px;
@@ -89,7 +90,6 @@ body
     width: 142px;
     color: white;
 }
-
 /* -----------------------------main------------------------ */
 
 .box>.main
@@ -130,4 +130,40 @@ body
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+    display: flex;
 }
+
+/* ------------------------------------room------------------------------ */
+
+
+.room_box
+{
+    flex-grow: 1;
+
+    overflow-x: hidden; 
+    overflow-y: scroll;
+}
+
+.room_box>.room
+{
+    border-radius: 5px;
+    margin: 5px;
+    float: left;
+    width: 48%;
+    height: 100px;
+    background-color: #E4E4E4;
+}
+
+.room_box .room .join .join_button
+{
+    width: 70px;
+    margin-right: 10px;
+    float: right;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(44, 41, 41);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
