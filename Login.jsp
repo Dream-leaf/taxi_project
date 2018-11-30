@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<%@ page import="jsp.member.model.MemberDAO" %>
+<%@ page import="java.sql.*" %>
+<!DOCTYPE html>
 <html>
 <head>
     <title>로그인 처리 JSP</title>
@@ -14,20 +15,59 @@
         String id= request.getParameter("id");
         String pw = request.getParameter("password");
         
-        // DB에서 아이디, 비밀번호 확인
-        MemberDAO dao = MemberDAO.getInstance();
-        int check = dao.loginCheck(id, pw);
+        int res = -1;
+        String pw_db = "";
+        Statement stmt = null;
+        Connection con = null;
         
+		try {
+			String driverName = "oracle.jdbc.driver.OracleDriver"; 
+        	 
+			String url = "jdbc:oracle:thin:@localhost:1521:root";
+             
+			ResultSet rs = null;
+             
+			Class.forName(driverName);
+             
+			con = DriverManager.getConnection(url,"MEMBER_","member_"); //url + id + pw
+         
+			stmt = con.createStatement(); 
+             
+			String sql= "SELECT PW FROM MEMBER_LIST WHERE ID="+id;
+             
+			rs = stmt.executeQuery(sql);
+             
+			if(rs.next()){
+				pw_db = rs.getString("PW");
+            	 
+				if(pw_db.equals(pw))
+					res = 1;	//equal
+				else
+					res = 0;	//not equal
+			}
+			else{
+				res = -1;		//not EXIST
+			}
+        } catch (Exception sqle) {
+            throw new RuntimeException(sqle.getMessage());
+        } finally {
+            try{
+                if ( stmt != null ){ stmt.close(); stmt=null; }
+                if ( con != null ){ con.close(); con=null;    }
+            }catch(Exception e){
+                throw new RuntimeException(e.getMessage());
+            }
+        }
         // URL 및 로그인관련 전달 메시지
         String msg = "";
         
-        if(check == 1)    // 로그인 성공
+        if(res == 1)    // 로그인 성공
         { 
             // 세션에 현재 아이디 세팅
             session.setAttribute("sessionID", id);
-            msg = "../../MainForm.jsp";
+            msg = "taxi.jsp";
         }
-        else if(check == 0) // 비밀번호가 틀릴경우
+        else if(res == 0) // 비밀번호가 틀릴경우
         {
             msg = "LoginPage.jsp?msg=0";
         }
@@ -42,6 +82,3 @@
     %>
 </body>
 </html>
-
-
-출처: http://all-record.tistory.com/115 [세상의 모든 기록]

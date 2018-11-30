@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <%
-
+	request.setCharacterEncoding("euc-kr");
 	String id = request.getParameter("id");
 	
 	if(id == "" || id == null) out.println("id이 null입니다");
