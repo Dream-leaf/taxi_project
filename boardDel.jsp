@@ -37,6 +37,8 @@
 	        	        
 	        stmt.executeQuery(sql);
 	        
+	        out.println("<script>alert('삭제하셨습니다');</script>");
+	        
 	        con.close();
 		}catch(Exception e){
 					out.println("Oracle Database Connection Something Problem. <hr>");
