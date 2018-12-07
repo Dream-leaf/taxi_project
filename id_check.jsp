@@ -68,7 +68,5 @@ finally{
 //<form method="post" name="writeform" action="member_insert.jsp" target="MemberServlet.do"></form>
 </script>
 <body>
-<input type="text" id="cId"><br>
-<input type="button" onclick="setPValue()">
 </body>
 </html>

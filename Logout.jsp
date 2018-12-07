@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<%
+		session.invalidate();
+		response.sendRedirect("taxi.jsp");
+%>
 </head>
 <body>
-	<%
-		session.invalidate();
-		response.sendRedirect("Login.jsp"); //
-	%>
+	
 </body>
 </html>

@@ -26,6 +26,33 @@
 	 
 	        rs = stmt.executeQuery(sql);
 		%>
+		<script type="text/javascript">
+			function goCreateboard(){
+				location.href="createboard.jsp";		
+			}
+			function goReport(){
+				location.href="report.jsp";	
+			}
+    		function goPart(idx){
+    			location.href="boardPart.jsp?idx="+idx;
+			}
+    		function goDel(idx){
+    			var conf = confirm( '정말 삭제하시겠습니까?' );
+    			if(conf)
+					location.href="boardDel.jsp?idx="+idx;		//삭제하는 페이지로 가기
+			}
+    		function goDetail(idx){
+    			if(!(window.open("boardDetail.jsp?idx="+idx,"childForm","width=600, height=450 , resizable = no, scrollbars = no, status = no"))){
+    				return false;
+    			}
+			}
+    		function goLogout(){
+    			location.href="Logout.jsp";	
+			}
+    		function goTaxi(){
+    			location.href="taxi.jsp";	
+			}
+		</script>
     </head>
 
     <body>
@@ -34,7 +61,7 @@
         <div class = "center">
             <div class = "box">
                 <div class = "state">
-                    <img src = "5.png" style = "height: 100px">
+                    <img src = "5.png" style = "height: 100px" onclick="goTaxi()">
                     <div id = "user">
                         <div id = "mystate">
                             <span>
@@ -78,12 +105,15 @@
 				%>
                             </div>
                         </div>
-                        <button class = "button">게시판 만들기</button>
-                        <button class = "button"><img src = "realreport.png" style = "height: 15px">신고하기</button>
+                        <button class = "button" onclick="goCreateboard()">게시판 만들기</button>
+                        <button class = "button" onclick="goReport()"><img src = "realreport.png" style = "height: 15px">신고하기</button>
                     </div>
                 </div>
                 <div class = "main">
                     <div class = "header">
+                    	<button class = "logout_button" onclick="goLogout()">
+                                        로그아웃
+                        </button>
                         <div>
                             <span>게시판 목록</span>
                         </div>
@@ -116,26 +146,37 @@
                     	<div class = "room_box">
                     		<% for (int i=1; i<=row; i++) { 
                     			rs.next();
+                    			String idx = rs.getString("IDX");
                     		%>
-                    		<div class = "room">
+                    		<div class = "room" onclick="goDetail(<%=idx%>)">
                                 <div class = "room_tilte">
                             <%
-                            	out.print(rs.getString(2));
+                            	out.print(rs.getString("TITLE"));
                             %> 
                                 </div>
                                 <div class = "room start">
                             <%
-                            	out.print(rs.getString(3));
+                            	out.print(rs.getString("START_"));
                             %> 
                                 </div>
                                 <div class = "room dest">
 							<%
-                            	out.print(rs.getString(4));
+                            	out.print(rs.getString("DEST_"));
+                            %> 
+                                </div>
+                                <div class = "room part">
+							<%
+                            	out.print(rs.getString("PARTNUM")+"/4");
                             %> 
                                 </div>
                                 <div class = "join">
-                                    <button class = "join_button">
+                                    <button class = "join_button" onclick="goPart(<%=idx%>)">
                                         + 참가
+                                    </button>
+                                </div>
+                                <div class = "delete">
+                                    <button class = "delete_button" onclick="goDel(<%=idx%>)">
+                                        + 삭제
                                     </button>
                                 </div>
                             </div>

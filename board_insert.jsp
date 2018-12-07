@@ -39,7 +39,7 @@ try {
  
      Statement stmt = con.createStatement();         
      
-     String sql = "INSERT INTO BOARD "+"(IDX, TITLE, START_, DEST_, TIME_, CLOTH_) "+"VALUES (board_seq.nextval, '"+title+"', '"+start+"', '"+dest+"', '"+time+"', '"+cloth+"')";
+     String sql = "INSERT INTO BOARD "+"(IDX, TITLE, START_, DEST_, TIME_, CLOTH_, WRITER) "+"VALUES (board_seq.nextval, '"+title+"', '"+start+"', '"+dest+"', '"+time+"', '"+cloth+"', '"+session.getAttribute("sessionID")+"')";
      
 	 stmt.executeUpdate(sql);
 	 
