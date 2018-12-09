@@ -6,7 +6,7 @@
 		<%
 		if(session.getAttribute("sessionID") == null)
 		{
-			response.sendRedirect("Login.jsp"); // ·Î±×ÀÎ ¾ÈµÇÀÖÀ¸¸é ·Î±×ÀÎ ÆäÀÌÁö·Î ¿Å°Ü°¨ ÃßÈÄ¿¡ Ã¹È­¸éÀ¸·Î ¹Ù²ã¾ßÇÔ!
+			response.sendRedirect("Login.jsp"); // ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Èµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å°Ü°ï¿½ ï¿½ï¿½ï¿½Ä¿ï¿½ Ã¹È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½ï¿½!
 		}
 		try {
 			String driverName = "oracle.jdbc.driver.OracleDriver"; 
@@ -37,9 +37,9 @@
     			location.href="boardPart.jsp?idx="+idx;
 			}
     		function goDel(idx){
-    			var conf = confirm( 'Á¤¸» »èÁ¦ÇÏ½Ã°Ú½À´Ï±î?' );
+    			var conf = confirm( 'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?' );
     			if(conf)
-					location.href="boardDel.jsp?idx="+idx;		//»èÁ¦ÇÏ´Â ÆäÀÌÁö·Î °¡±â
+					location.href="boardDel.jsp?idx="+idx;		//ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
     		function goDetail(idx){
     			if(!(window.open("boardDetail.jsp?idx="+idx,"childForm","width=600, height=450 , resizable = no, scrollbars = no, status = no"))){
@@ -61,12 +61,12 @@
         <div class = "center">
             <div class = "box">
                 <div class = "state">
-                    <img src = "5.png" style = "height: 100px" onclick="goTaxi()">
+                    <img id = "gotaxi" src = "5.png" style = "height: 100px" onclick="goTaxi()">
                     <div id = "user">
                         <div id = "mystate">
                             <span>
                                 <img src = "person.jpg">
-                                ³» Á¤º¸
+                                ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                             </span>
                         </div>
                         <div id = "mystatebody">
@@ -75,108 +75,110 @@
                                  while(rs.next()){
                                 	 out.print("<b>" + rs.getString(1) + "</b><br>"); 
                            	%>
-                                ÃÖ±Ù Ãâ¹ßÁö<br>
-				<%   
- 
-					out.print("1 " + rs.getString(2) + "<br>");		//¹Þ¾Æ¿Â´Ù
- 
-					out.print("2 " + rs.getString(3) + "<br>");
- 
-					out.print("3 " + rs.getString(4) + "<br>");
+                                ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½<br>
+							<%   
+			
+								out.print("1 " + rs.getString(2) + "<br>");		//ï¿½Þ¾Æ¿Â´ï¿½
+			
+								out.print("2 " + rs.getString(3) + "<br>");
+			
+								out.print("3 " + rs.getString(4) + "<br>");
+								
+								out.print("ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<br>");
+			
+								out.print("1 " + rs.getString(5) + "<br>");
+			
+								out.print("2 " + rs.getString(6) + "<br>");
+			
+								out.print("3 " + rs.getString(7) + "<br>");
+			
+							}
+							con.close();
+							}catch(Exception e){
+								out.println("Oracle Database Connection Something Problem. <hr>");
 					
-					out.print("ÃÖ±Ù µµÂøÁö<br>");
- 
-					out.print("1 " + rs.getString(5) + "<br>");
- 
-					out.print("2 " + rs.getString(6) + "<br>");
- 
-					out.print("3 " + rs.getString(7) + "<br>");
- 
-				}
-				con.close();
-				}catch(Exception e){
-					out.println("Oracle Database Connection Something Problem. <hr>");
-		 
-        			out.println(e.getMessage());
- 
-        			e.printStackTrace();
+								out.println(e.getMessage());
+			
+								e.printStackTrace();
 
-				}
-				%>
+							}
+							%>
                             </div>
                         </div>
-                        <button class = "button" onclick="goCreateboard()">°Ô½ÃÆÇ ¸¸µé±â</button>
-                        <button class = "button" onclick="goReport()"><img src = "realreport.png" style = "height: 15px">½Å°íÇÏ±â</button>
+                        <button class = "button" onclick="goCreateboard()">ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½</button>
+                        <button class = "button" onclick="goReport()"><img src = "realreport.png" style = "height: 15px">ï¿½Å°ï¿½ï¿½Ï±ï¿½</button>
                     </div>
                 </div>
                 <div class = "main">
                     <div class = "header">
                     	<button class = "logout_button" onclick="goLogout()">
-                                        ·Î±×¾Æ¿ô
+                                        ï¿½Î±×¾Æ¿ï¿½
                         </button>
                         <div>
-                            <span>°Ô½ÃÆÇ ¸ñ·Ï</span>
+                            <span>ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½</span>
                         </div>
                     </div>
-				<%
-				try {
-					String driverName = "oracle.jdbc.driver.OracleDriver"; 
-	 
-					String url = "jdbc:oracle:thin:@localhost:1521:root";
-	 
-					ResultSet rs = null;
-	 
-	 				Class.forName(driverName);
-	 
-					Connection con = DriverManager.getConnection(url,"BOARD","board");
-	 
-					String sql = "SELECT * FROM BOARD ORDER BY TIME_ DESC";
-					
-					PreparedStatement pstmt = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);        
-					
-					rs = pstmt.executeQuery();
-					
-					rs.last();
-					
-					int row = rs.getRow();
-					
-					rs.beforeFirst();
-				%>
+					<%
+					try {
+						String driverName = "oracle.jdbc.driver.OracleDriver"; 
+		
+						String url = "jdbc:oracle:thin:@localhost:1521:root";
+		
+						ResultSet rs = null;
+		
+						Class.forName(driverName);
+		
+						Connection con = DriverManager.getConnection(url,"BOARD","board");
+		
+						String sql = "SELECT * FROM BOARD ORDER BY TIME_ DESC";
+						
+						PreparedStatement pstmt = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);        
+						
+						rs = pstmt.executeQuery();
+						
+						rs.last();
+						
+						int row = rs.getRow();
+						
+						rs.beforeFirst();
+					%>
                     <div class = "board">
                     	<div class = "room_box">
                     		<% for (int i=1; i<=row; i++) { 
                     			rs.next();
                     			String idx = rs.getString("IDX");
                     		%>
-                    		<div class = "room" onclick="goDetail(<%=idx%>)">
-                                <div class = "room_tilte">
-                            <%
-                            	out.print(rs.getString("TITLE"));
-                            %> 
-                                </div>
-                                <div class = "room start">
-                            <%
-                            	out.print(rs.getString("START_"));
-                            %> 
-                                </div>
-                                <div class = "room dest">
-							<%
-                            	out.print(rs.getString("DEST_"));
-                            %> 
-                                </div>
-                                <div class = "room part">
-							<%
-                            	out.print(rs.getString("PARTNUM")+"/4");
-                            %> 
-                                </div>
+							<div class = "room">
+								<div class = "room_text" onclick="goDetail(<%=idx%>)">
+									<div class = "room_tilte">
+								<%
+									out.print(rs.getString("TITLE"));
+								%> 
+									</div>
+									<div class = "room start">
+								<%
+									out.print(rs.getString("START_"));
+								%> 
+									</div>
+									<div class = "room dest">
+								<%
+									out.print(rs.getString("DEST_"));
+								%> 
+									</div>
+								</div>	
                                 <div class = "join">
                                     <button class = "join_button" onclick="goPart(<%=idx%>)">
-                                        + Âü°¡
-                                    </button>
+                                        + ï¿½ï¿½ï¿½ï¿½
+									</button>
+									<span id = "join_num">
+									<%
+										out.print(rs.getString("PARTNUM")+"/4");
+									%> 
+									</span>
                                 </div>
                                 <div class = "delete">
                                     <button class = "delete_button" onclick="goDel(<%=idx%>)">
-                                        + »èÁ¦
+                                        - ï¿½ï¿½ï¿½ï¿½
                                     </button>
                                 </div>
                             </div>
