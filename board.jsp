@@ -6,7 +6,7 @@
 		<%
 		if(session.getAttribute("sessionID") == null)
 		{
-			response.sendRedirect("Login.jsp"); // �α��� �ȵ������� �α��� �������� �Űܰ� ���Ŀ� ùȭ������ �ٲ����!
+			response.sendRedirect("Login.jsp"); // �α��� �ȵ������� �α��� �������� �Űܰ� ���Ŀ� ùȭ������ �ٲ����?!
 		}
 		try {
 			String driverName = "oracle.jdbc.driver.OracleDriver"; 
@@ -75,7 +75,7 @@
                                  while(rs.next()){
                                 	 out.print("<b>" + rs.getString(1) + "</b><br>"); 
                            	%>
-                                �ֱ� �����<br>
+                                �ֱ� �����?<br>
 							<%   
 			
 								out.print("1 " + rs.getString(2) + "<br>");		//�޾ƿ´�
@@ -105,17 +105,15 @@
 							%>
                             </div>
                         </div>
-                        <button class = "button" onclick="goCreateboard()">�Խ��� �����</button>
-                        <button class = "button" onclick="goReport()"><img src = "realreport.png" style = "height: 15px">�Ű��ϱ�</button>
+                        <button class = "button" onclick="goCreateboard()">�Խ��� �����?</button>
+						<button class = "button" onclick="goReport()"><img src = "realreport.png" style = "height: 15px">�Ű��ϱ�</button>
+						<button class = "logout_button" onclick="goLogout()">�α׾ƿ�</button>
                     </div>
                 </div>
                 <div class = "main">
                     <div class = "header">
-                    	<button class = "logout_button" onclick="goLogout()">
-                                        �α׾ƿ�
-                        </button>
                         <div>
-                            <span>�Խ��� ���</span>
+                            <span>�Խ��� ���?</span>
                         </div>
                     </div>
 					<%
